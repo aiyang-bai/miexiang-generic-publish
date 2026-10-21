@@ -684,6 +684,29 @@ class CoreContractTests(unittest.TestCase):
         self.assertEqual(result["identity"], "DRAFT_RESUMABLE")
         self.assertTrue(all(not (len(args) > 2 and args[1] == "release" and args[2] in {"create", "upload", "edit"}) for args in calls))
 
+    def test_manifest_creation_uses_verified_public_noreply_identity(self):
+        request = PublicationRequest("fixture", "1.0", "candidate")
+        artifact = Artifact("fixture-1.0.bin", "fixture.bin", 1, hashlib.sha256(b"x").hexdigest(), "application/octet-stream", Path("synthetic.bin"))
+        encoded = encode_manifest(build_manifest(request, artifact, [{"provider":"github-releases", "role":"mirror", "status":"VERIFIED", "url":"https://github.com/example/fixture/releases/download/fixture/fixture.bin", "published_at":"2026-01-01T00:00:00Z", "remote_verified_at":"2026-01-01T00:00:00Z", "verified_sha256":artifact.sha256}], "required"))
+        adapter = GitHubReleaseAdapter(GitHubProfile("example/fixture", True, "release-manifests"), TEST_ROOT)
+        calls = []
+        def api(endpoint, args=None):
+            calls.append((endpoint, args or []))
+            if endpoint == "user":
+                self.assertEqual(args, ["--jq", "{login,id}"])
+                return {"login":"fixture-user", "id":1234}
+            if args and "PUT" in args:
+                return {"commit":{"sha":"a"*40}}
+            raise PublishError("REMOTE_CONFLICT")
+        def download(url, destination, expected_size, expected_sha256, allowed_hosts):
+            return SimpleNamespace(verification=StreamVerification(expected_size, expected_sha256))
+        with patch.object(adapter, "_api_json", side_effect=api), patch("miexiang_publish.providers.github_release.download_and_verify", side_effect=download):
+            result = adapter.publish_manifest(request, encoded, hashlib.sha256(encoded).hexdigest())
+        fields = next(args for endpoint, args in calls if "PUT" in args)
+        self.assertIn("author[email]=1234+fixture-user@users.noreply.github.com", fields)
+        self.assertIn("committer[email]=1234+fixture-user@users.noreply.github.com", fields)
+        self.assertFalse(result["idempotent"])
+
     def test_github_manifest_idempotency_uses_a_read_only_commit_lookup(self):
         request = PublicationRequest("miexiang-test-publisher", "0.1.0-manifest-retry.1", "test")
         artifact = Artifact(

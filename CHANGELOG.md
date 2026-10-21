@@ -2,6 +2,7 @@
 
 ## 0.2.0rc2 — corrected public candidate (2026-10-22)
 
+- Explicitly set manifest commit author/committer to the authenticated GitHub user public noreply address; never inherit the account default email. The earlier rc1 commit metadata remains a disclosed unresolved historical privacy item.
 - Fix manifest contents and commit lookups to use the explicitly configured branch; real rc1 replay exposed a default-branch-only assumption.
 - Keep rc1 artifacts, tag and manifest intact; rc1 live replay failed, so its successful first upload is not full acceptance.
 - Align the imported package version with distribution metadata and verify it after actual installation.

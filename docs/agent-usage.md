@@ -29,3 +29,5 @@ Wheel filenames retain their PyPA compatibility/build tags. Distribution must ma
 Wheel naming accepts a supported numeric normalized version subset: release components, optional a/b/rc, post/dev and dot-separated local labels. Other PEP 440 forms (including epochs) are rejected. Tags must be nonempty dot-separated identifiers. This is a naming/identity check, not a complete wheel content, version-parser or compatibility validator; install the actual wheel as part of release validation.
 
 REMOTE_WRITE_PERFORMED is false for preview and verified zero-write replay, true when successful provider counters prove writes, and null when a failed/incomplete operation cannot establish whether remote writes occurred. Reconcile unknown side effects using remote identities before retrying.
+
+New manifest commits use the authenticated GitHub login and numeric ID to construct its public GitHub noreply address. Author and committer are both explicit; the account default email is not inherited. Historical rc1 metadata is not silently rewritten.

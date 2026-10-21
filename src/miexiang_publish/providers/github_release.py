@@ -347,6 +347,12 @@ class GitHubReleaseAdapter:
         else:
             remote_manifest_sha256 = manifest_sha256
             body = base64.b64encode(manifest_bytes).decode("ascii")
+            identity = self._api_json("user", ["--jq", "{login,id}"])
+            login = identity.get("login") if isinstance(identity, dict) else None
+            user_id = identity.get("id") if isinstance(identity, dict) else None
+            if not isinstance(login, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9-]{0,38}", login) or not isinstance(user_id, int) or isinstance(user_id, bool) or user_id <= 0:
+                raise PublishError("AUTH_NOT_READY", "public GitHub commit identity could not be established")
+            noreply = f"{user_id}+{login}@users.noreply.github.com"
             response = self._api_json(
                 endpoint,
                 [
@@ -354,6 +360,10 @@ class GitHubReleaseAdapter:
                     "--field", f"message=Add {request.product_id} {request.version} release manifest",
                     "--field", f"content={body}",
                     "--field", f"branch={self._default_branch}",
+                    "--field", f"author[name]={login}",
+                    "--field", f"author[email]={noreply}",
+                    "--field", f"committer[name]={login}",
+                    "--field", f"committer[email]={noreply}",
                 ],
             )
             commit_sha = str((response.get("commit") or {}).get("sha") or "")
