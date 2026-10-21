@@ -7,9 +7,13 @@ Publish one explicitly identified software artifact, then fetch the final consum
 **Version: 0.2.0rc2 (corrected public candidate). Licensed under MIT.**
 The distribution has no required PyPI runtime dependencies. GitHub publishing uses the separately installed GitHub CLI (`gh`) and its OS credential store. COS is an optional experimental adapter, `IMPLEMENTED_UNVERIFIED` against a real service.
 
+[Download corrected 0.2.0rc2](https://github.com/aiyang-bai/miexiang-generic-publish/releases/tag/candidate-miexiang-generic-publish-miexiang-generic-publish-0.2.0rc2) · [Actual public verification](docs/releases/0.2.0rc2.md)
+
+rc1 is retained as a prior candidate with a known branch-replay defect and an open historical Git metadata item; use rc2.
+
 ## Install and verify without an account
 
-Use Python 3.11 or 3.12 (declared range). Only Windows/Python 3.11 has been run locally for this candidate; 3.12 is a CI target, and Linux/macOS are NOT_RUN.
+Use Python 3.11 or 3.12 (declared range). Windows/Python 3.11 is locally verified; the Windows Python 3.11/3.12 CI matrix passed. Native Linux/macOS are NOT_RUN.
 
 From a source checkout:
 
@@ -19,7 +23,7 @@ python -m venv .venv
 .venv/Scripts/miexiang-publish offline-demo
 ```
 
-Or install the reviewed wheel with `python -m pip install --no-deps <wheel-path>`, then run `miexiang-publish offline-demo`. No PyPI release is claimed. The demo creates synthetic in-memory evidence, checks local hashes, length failures, conflict behavior and manifest identity. It returns `OFFLINE_FIXTURE_PASS`, `REMOTE_VERIFICATION=NOT_RUN`, and no public release manifest. It never reads profiles, authenticates, contacts a provider or uploads.
+Or install the [public wheel](https://github.com/aiyang-bai/miexiang-generic-publish/releases/download/candidate-miexiang-generic-publish-miexiang-generic-publish-0.2.0rc2/miexiang_generic_publish-0.2.0rc2-py3-none-any.whl) with `python -m pip install --no-deps <wheel-path>`, then run `miexiang-publish offline-demo`. No PyPI release is claimed. The demo creates synthetic in-memory evidence, checks local hashes, length failures, conflict behavior and manifest identity. It returns `OFFLINE_FIXTURE_PASS`, `REMOTE_VERIFICATION=NOT_RUN`, and no public release manifest. It never reads profiles, authenticates, contacts a provider or uploads.
 
 ## Data and configuration
 

@@ -1,0 +1,87 @@
+{
+  "schema": "MIEXIANG_PUBLIC_RELEASE_VERIFICATION_V1",
+  "version": "0.2.0rc2",
+  "channel": "candidate",
+  "source_commit": "c0daff9852a5e707feebbe08d42e2ab8c7080a54",
+  "tag": "candidate-miexiang-generic-publish-miexiang-generic-publish-0.2.0rc2",
+  "artifact": {
+    "filename": "miexiang_generic_publish-0.2.0rc2-py3-none-any.whl",
+    "size_bytes": 43159,
+    "sha256": "049a6bc810e10a24df811668b55f090e48bf71932ee143972bfea72ba445e0e3",
+    "url": "https://github.com/aiyang-bai/miexiang-generic-publish/releases/download/candidate-miexiang-generic-publish-miexiang-generic-publish-0.2.0rc2/miexiang_generic_publish-0.2.0rc2-py3-none-any.whl"
+  },
+  "manifest": {
+    "url": "https://raw.githubusercontent.com/aiyang-bai/miexiang-generic-publish/5e6a3911c114ccf5ab4d5196597628cdd51b3894/manifests/miexiang-generic-publish/candidate/0.2.0rc2/release-manifest.json",
+    "sha256": "84b442c4da8da15280d85b20ec48c884181942b0248bc3fc1b47215928399eda",
+    "size_bytes": 1982
+  },
+  "published_at": "2026-10-21T16:33:52Z",
+  "checks": {
+    "first_publish": "PUBLISH_SUCCESS",
+    "same_bytes_replay": "IDEMPOTENT_ALREADY_PUBLISHED",
+    "replay_upload_bytes": 0,
+    "different_bytes_same_version": "CONFLICT_VERSION_HASH",
+    "conflict_upload_bytes": 0,
+    "release_asset_ids_digests_tag_and_manifest_branch_unchanged": true,
+    "anonymous_consumer_bytes": "PASS",
+    "downloaded_wheel_independent_install_without_cos": "PASS",
+    "package_version_matches_metadata": "PASS",
+    "new_manifest_author_and_committer_public_noreply": "PASS"
+  },
+  "ci": {
+    "url": "https://github.com/aiyang-bai/miexiang-generic-publish/actions/runs/39635264887",
+    "source_commit": "c0daff9852a5e707feebbe08d42e2ab8c7080a54",
+    "conclusion": "success",
+    "matrix": [
+      {
+        "name": "windows (3.12, true)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (3.12, false)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (3.11, false)",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows (3.11, true)",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "anonymous_download_receipts": [
+    {
+      "url": "https://github.com/aiyang-bai/miexiang-generic-publish/releases/download/candidate-miexiang-generic-publish-miexiang-generic-publish-0.2.0rc2/miexiang_generic_publish-0.2.0rc2-py3-none-any.whl",
+      "size_bytes": 43159,
+      "sha256": "049a6bc810e10a24df811668b55f090e48bf71932ee143972bfea72ba445e0e3",
+      "http_status": 200,
+      "final_host": "release-assets.githubusercontent.com",
+      "authorization_sent": false
+    },
+    {
+      "url": "https://github.com/aiyang-bai/miexiang-generic-publish/releases/download/candidate-miexiang-generic-publish-miexiang-generic-publish-0.2.0rc2/SHA256SUMS.txt",
+      "size_bytes": 117,
+      "sha256": "6148b123340b7bc1f2611f4d5f1a89dfc2f7df8ad6a784f3aef57b79b5832f44",
+      "http_status": 200,
+      "final_host": "release-assets.githubusercontent.com",
+      "authorization_sent": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/aiyang-bai/miexiang-generic-publish/5e6a3911c114ccf5ab4d5196597628cdd51b3894/manifests/miexiang-generic-publish/candidate/0.2.0rc2/release-manifest.json",
+      "size_bytes": 1982,
+      "sha256": "84b442c4da8da15280d85b20ec48c884181942b0248bc3fc1b47215928399eda",
+      "http_status": 200,
+      "final_host": "raw.githubusercontent.com",
+      "authorization_sent": false
+    }
+  ],
+  "limitations": {
+    "github_server_immutable_enforced": false,
+    "cos": "IMPLEMENTED_UNVERIFIED",
+    "linux_macos": "NOT_RUN",
+    "code_signing_installer_geographic_reachability": "NOT_PROVEN",
+    "rc1_historical_commit_default_email": "OPEN_OWNER_DECISION; actual address not reproduced"
+  }
+}

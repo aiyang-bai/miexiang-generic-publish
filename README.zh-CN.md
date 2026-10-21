@@ -6,9 +6,11 @@
 
 **版本：0.2.0rc2，修正公开候选，采用 MIT 许可证。版权主体为 aiyang-bai。**
 
+[下载 rc2 候选](https://github.com/aiyang-bai/miexiang-generic-publish/releases/tag/candidate-miexiang-generic-publish-miexiang-generic-publish-0.2.0rc2) · [真实发布验证](docs/releases/0.2.0rc2.md)
+
 ## 无账号安装与验证
 
-声明 Python `>=3.11,<3.13`。本轮实际运行 Windows + Python 3.11；3.12 是待运行的 CI 目标。Linux/macOS 未实际运行，不作兼容承诺。
+声明 Python `>=3.11,<3.13`。本机实际验证 Windows + Python 3.11.9；真实 CI 的 Windows/Python 3.11、3.12 四个组合已通过。Linux/macOS 未实际运行，不作兼容承诺。
 
 ```powershell
 python -m venv .venv
@@ -40,7 +42,7 @@ miexiang-publish --profile ./profile.json preview --product-id example-tool --ve
 miexiang-publish --profile ./profile.json publish --product-id example-tool --version 1.0.0 --channel test --artifact ./example.bin
 ```
 
-`preview` 可联网只读检查，不能当成离线命令；`PREVIEW_READY` 不保证每个 provider 都准备好，需检查各项 readiness/identity。`publish` 只有配置明确授权才可写。上传命令成功不等于发布完成，工件和清单都须从消费者 URL 取回核对。本轮新 OSS 版本真实 GitHub 发布 `LIVE_E2E=NOT_RUN`；不以历史生产版本的 PASS 替代。
+`preview` 可联网只读检查，不能当成离线命令；`PREVIEW_READY` 不保证每个 provider 都准备好，需检查各项 readiness/identity。`publish` 只有配置明确授权才可写。上传命令成功不等于发布完成，工件和清单都须从消费者 URL 取回核对。rc2 已完成真实 GitHub 发布、匿名下载与安装、零上传幂等及同版本不同字节冲突验证；见[真实验证记录](docs/releases/0.2.0rc2.md)。rc1 保留已知分支回放缺陷及待 Owner 决定的历史 Git 元数据项，推荐使用 rc2。
 
 COS SDK 已拆为可选 extra：`python -m pip install '.[cos]'`；复现本轮可选依赖用 `requirements-cos.lock`。无 SDK 不影响 GitHub 导入和离线验证。COS 真实服务仍为 `IMPLEMENTED_UNVERIFIED`。不承担网站部署、云资源创建、代码签名、安装器行为、跨地区网络可达性或下载安全评估。
 
