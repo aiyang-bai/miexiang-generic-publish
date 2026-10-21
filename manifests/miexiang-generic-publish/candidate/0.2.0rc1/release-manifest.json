@@ -1,0 +1,41 @@
+{
+  "schema": "MIEXIANG_RELEASE_MANIFEST_V1",
+  "schema_version": "MIEXIANG_RELEASE_MANIFEST_V1",
+  "product_id": "miexiang-generic-publish",
+  "version": "0.2.0rc1",
+  "channel": "candidate",
+  "release_channel": "candidate",
+  "generated_at": "2026-10-21T16:18:42Z",
+  "published_at": "2026-10-21T16:18:37Z",
+  "verified_at": "2026-10-21T16:18:42Z",
+  "display_name": "Miexiang Generic Publisher 0.2.0rc1",
+  "artifact_name": "miexiang_generic_publish-0.2.0rc1-py3-none-any.whl",
+  "size": 42941,
+  "sha256": "4d18199ab4589bec6ca0a16cb40841bee8f5ee7da2d7ef7e5b96c413322faf87",
+  "provider": "github-releases",
+  "remote_url": "https://github.com/aiyang-bai/miexiang-generic-publish/releases/download/candidate-miexiang-generic-publish-miexiang-generic-publish-0.2.0rc1/miexiang_generic_publish-0.2.0rc1-py3-none-any.whl",
+  "remote_sha256": "4d18199ab4589bec6ca0a16cb40841bee8f5ee7da2d7ef7e5b96c413322faf87",
+  "verification_status": "VERIFIED",
+  "release_notes": "First public MIT candidate. Consumer bytes and manifest must verify. COS remains IMPLEMENTED_UNVERIFIED.",
+  "mirror_policy": "required",
+  "artifacts": [
+    {
+      "filename": "miexiang_generic_publish-0.2.0rc1-py3-none-any.whl",
+      "display_name": "Miexiang Generic Publisher 0.2.0rc1",
+      "size_bytes": 42941,
+      "sha256": "4d18199ab4589bec6ca0a16cb40841bee8f5ee7da2d7ef7e5b96c413322faf87",
+      "content_type": "application/octet-stream"
+    }
+  ],
+  "providers": [
+    {
+      "provider": "github-releases",
+      "role": "mirror",
+      "status": "VERIFIED",
+      "url": "https://github.com/aiyang-bai/miexiang-generic-publish/releases/download/candidate-miexiang-generic-publish-miexiang-generic-publish-0.2.0rc1/miexiang_generic_publish-0.2.0rc1-py3-none-any.whl",
+      "published_at": "2026-10-21T16:18:37Z",
+      "remote_verified_at": "2026-10-21T16:18:42Z",
+      "verified_sha256": "4d18199ab4589bec6ca0a16cb40841bee8f5ee7da2d7ef7e5b96c413322faf87"
+    }
+  ]
+}
