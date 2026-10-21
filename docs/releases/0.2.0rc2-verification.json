@@ -82,6 +82,30 @@
     "cos": "IMPLEMENTED_UNVERIFIED",
     "linux_macos": "NOT_RUN",
     "code_signing_installer_geographic_reachability": "NOT_PROVEN",
-    "rc1_historical_commit_default_email": "OPEN_OWNER_DECISION; actual address not reproduced"
+    "rc1_historical_commit_default_email": "Public ref history repaired with Owner approval; old commit endpoints remain accessible; cache removal NOT_PROVEN; actual address not reproduced"
+  },
+  "original_verification_record_note": "The manifest and anonymous_download_receipts fields preserve the original publication observations, including historical URLs. Use current_manifest for the current entry point after the authorized metadata rewrite.",
+  "current_manifest": {
+    "url": "https://raw.githubusercontent.com/aiyang-bai/miexiang-generic-publish/d660879b1dd8ff2f3cdadbb45da86698e55d7d48/manifests/miexiang-generic-publish/candidate/0.2.0rc2/release-manifest.json",
+    "sha256": "84b442c4da8da15280d85b20ec48c884181942b0248bc3fc1b47215928399eda",
+    "size_bytes": 1982,
+    "commit": "d660879b1dd8ff2f3cdadbb45da86698e55d7d48"
+  },
+  "metadata_cleanup": {
+    "date": "2026-10-22",
+    "scope": "release-manifests only; normal current documentation update",
+    "manifest_file_bytes_preserved": true,
+    "source_tags_and_release_assets_preserved": true,
+    "anonymous_downloads": "PASS",
+    "downloaded_wheel_fresh_install": "PASS",
+    "replay_status": "IDEMPOTENT_ALREADY_PUBLISHED",
+    "replay_upload_bytes": 0,
+    "replay_download_bytes": 45258,
+    "replay_remote_write_performed": false,
+    "replay_remote_snapshot_unchanged": true,
+    "public_ref_metadata": "CLEAN",
+    "old_commit_endpoints": "HTTP_200_AT_CHECK_TIME",
+    "github_cache_removal": "NOT_PROVEN",
+    "support_contacted": false
   }
 }
