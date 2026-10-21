@@ -16,7 +16,7 @@ Reviewed installed distribution metadata and included license files on 2026-10-2
 | six | 1.17.0 | MIT | optional COS transitive |
 | urllib3 | 2.8.0 | MIT | optional COS transitive |
 | xmltodict | 1.0.4 | MIT | optional COS transitive |
-| setuptools | 65.5.0 | MIT | build only |
+| setuptools | 68.2.2 | MIT | build only |
 | wheel | 0.45.1 | MIT | build only |
 
 `requirements-cos.lock` preserves the predecessor's exact optional dependency versions; no general upgrade was performed. `requirements-build.lock` pins the build backend. These are exact-version constraints, not hash-pinned or signed dependency attestations. Package hashes in the private review packet identify built first-party files, not all possible future dependency downloads. Availability/security drift requires a fresh check when changing dependencies.
