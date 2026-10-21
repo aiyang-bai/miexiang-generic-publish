@@ -1,6 +1,6 @@
 # Contributing
 
-The candidate is currently private pending public/license approval. Once public, send a minimal reproducible issue or a focused PR. Do not invent activity, edit production configs, attach credentials or upload private artifacts. Contributions must be yours to submit; identify any copied code and its license/notice requirements. No CLA or email contact is invented here.
+Send a minimal reproducible issue or a focused PR through the project repository. Do not invent activity, edit production configs, attach credentials or upload private artifacts. Contributions must be yours to submit; identify any copied code and its license/notice requirements. No CLA or email contact is invented here.
 
 Use Python 3.11 or 3.12. From a disposable virtual environment:
 

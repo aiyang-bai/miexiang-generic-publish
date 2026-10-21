@@ -2,7 +2,7 @@
 
 | Item | State | Resume condition |
 | --- | --- | --- |
-| Approve repository identity, MIT rights holder and initial public content | WAITING_OWNER | Concrete review packet approved |
+| Repository identity and MIT rights | APPROVED 2026-10-22 | aiyang-bai confirmed publication and licensing rights |
 | Real GitHub artifact + manifest consumer readback, then identical replay/conflict check | NOT_RUN | Explicit test repository and public-write authorization |
 | Python 3.12 Windows native run | NOT_RUN | Available isolated interpreter or successful CI |
 | Linux/macOS native validation and OS keyring compatibility | NOT_RUN | Actual native runners and suitable credential-store evidence |

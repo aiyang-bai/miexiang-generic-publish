@@ -9,6 +9,11 @@ description = "Single-artifact release publisher with remote SHA-256 verificatio
 requires-python = ">=3.11,<3.13"
 dependencies = []
 readme = "README.md"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/aiyang-bai/miexiang-generic-publish"
+Issues = "https://github.com/aiyang-bai/miexiang-generic-publish/issues"
 
 [project.optional-dependencies]
 cos = ["cos-python-sdk-v5==1.9.44"]

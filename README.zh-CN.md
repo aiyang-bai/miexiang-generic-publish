@@ -4,7 +4,7 @@
 
 给一个软件文件明确的产品、版本及渠道身份，发布后从最终消费者 URL 下载真实字节，核对大小和 SHA-256，再生成 `MIEXIANG_RELEASE_MANIFEST_V1` 清单。同一身份相同字节可重试；同一版本不同字节必须冲突。
 
-**当前：0.2.0rc1 本地公开候选，尚未公开，许可证待权利人批准。**
+**版本：0.2.0rc1，首个公开候选，采用 MIT 许可证。版权主体为 aiyang-bai。**
 
 ## 无账号安装与验证
 
@@ -44,4 +44,4 @@ miexiang-publish --profile ./profile.json publish --product-id example-tool --ve
 
 COS SDK 已拆为可选 extra：`python -m pip install '.[cos]'`；复现本轮可选依赖用 `requirements-cos.lock`。无 SDK 不影响 GitHub 导入和离线验证。COS 真实服务仍为 `IMPLEMENTED_UNVERIFIED`。不承担网站部署、云资源创建、代码签名、安装器行为、跨地区网络可达性或下载安全评估。
 
-[Agent 状态与重试](docs/agent-usage.md)、[贡献检查](CONTRIBUTING.md)、[维护](MAINTENANCE.md)、[验证边界](docs/validation.md)、[来源](docs/provenance.md)、[许可证候选](LICENSE-CANDIDATE.md)。
+[Agent 状态与重试](docs/agent-usage.md)、[贡献检查](CONTRIBUTING.md)、[维护](MAINTENANCE.md)、[验证边界](docs/validation.md)、[来源](docs/provenance.md)、[MIT 许可证](LICENSE)。

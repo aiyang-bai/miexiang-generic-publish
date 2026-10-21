@@ -4,7 +4,7 @@
 
 Publish one explicitly identified software artifact, then fetch the final consumer URL and verify its size and SHA-256. Keep retries tied to product, channel and version; reject changed bytes for the same identity.
 
-**Status: local public candidate 0.2.0rc1; not publicly released. License approval pending.**
+**Version: 0.2.0rc1 (first public candidate). Licensed under MIT.**
 The distribution has no required PyPI runtime dependencies. GitHub publishing uses the separately installed GitHub CLI (`gh`) and its OS credential store. COS is an optional experimental adapter, `IMPLEMENTED_UNVERIFIED` against a real service.
 
 ## Install and verify without an account
@@ -55,4 +55,4 @@ miexiang-publish --profile ./profile.json publish --product-id example-tool --ve
 
 This independent repository is a reviewed snapshot of a private predecessor, with fresh history and no inherited production configuration. The exact source commit and exclusions are described in [provenance](docs/provenance.md). No global skill is installed or modified. The legacy candidate-freeze helper is retained for regression coverage of predecessor evidence contracts; it is not the OSS release builder and its synthetic test evidence is not provider proof.
 
-MIT is proposed for owner-controlled code, subject to confirmation of ownership and the copyright holder. See [LICENSE-CANDIDATE](LICENSE-CANDIDATE.md) and [third-party notices](THIRD_PARTY_NOTICES.md). Until approved, this is a private review candidate and no open-source license grant is asserted.
+Copyright (c) 2026 aiyang-bai. The rights holder confirmed publication rights and authorized the project [MIT license](LICENSE). Separately installed dependencies retain their own [third-party notices](THIRD_PARTY_NOTICES.md).

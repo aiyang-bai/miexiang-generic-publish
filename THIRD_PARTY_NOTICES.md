@@ -1,6 +1,6 @@
 # Third-party notices and dependency review
 
-No third-party library source or binaries are vendored in this repository, wheel or sdist. GitHub-only runtime uses the Python standard library. Python and the separately installed GitHub CLI retain their own licenses. Dependencies below are separately fetched; do not relicense them under the proposed project MIT license. When redistributing dependency binaries/source, retain their accompanying licenses, copyright and notices, including certificate-bundle MPL terms and component-specific notices. No dependency bundle is part of this release candidate.
+No third-party library source or binaries are vendored in this repository, wheel or sdist. GitHub-only runtime uses the Python standard library. Python and the separately installed GitHub CLI retain their own licenses. Dependencies below are separately fetched; do not relicense them under the project MIT license. When redistributing dependency binaries/source, retain their accompanying licenses, copyright and notices, including certificate-bundle MPL terms and component-specific notices. No dependency bundle is part of this release candidate.
 
 Reviewed installed distribution metadata and included license files on 2026-10-21:
 
@@ -21,4 +21,4 @@ Reviewed installed distribution metadata and included license files on 2026-10-2
 
 `requirements-cos.lock` preserves the predecessor's exact optional dependency versions; no general upgrade was performed. `requirements-build.lock` pins the build backend. These are exact-version constraints, not hash-pinned or signed dependency attestations. Package hashes in the private review packet identify built first-party files, not all possible future dependency downloads. Availability/security drift requires a fresh check when changing dependencies.
 
-Source review found no vendored third-party implementation or attributed copied block in the allowlisted tree. This is a scoped engineering inspection, not proof of all authorship rights. Predecessor commits use an Agent author label, which cannot establish ownership; the Owner must confirm the rights for the proposed license before public release. The candidate currently grants no project license.
+Source review found no vendored third-party implementation or attributed copied block in the allowlisted tree. This is a scoped engineering inspection, not proof of all authorship rights. The rights holder aiyang-bai confirmed publication rights and authorized the MIT grant on 2026-10-22; commit author labels alone were not used as ownership evidence.

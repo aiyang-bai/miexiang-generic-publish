@@ -5,7 +5,7 @@ recursive-include examples *.json
 recursive-include tests *.py
 recursive-include scripts *.py
 recursive-include .github *.yml *.md
-include AGENTS.md MAINTENANCE.md CONTRIBUTING.md SECURITY.md ROADMAP.md LICENSE-CANDIDATE.md
+include AGENTS.md MAINTENANCE.md CONTRIBUTING.md SECURITY.md ROADMAP.md LICENSE
 prune .maintenance
 prune AUTOPILOT
 prune runtime

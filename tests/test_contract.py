@@ -70,6 +70,13 @@ class CoreContractTests(unittest.TestCase):
             "miexiang-test-publisher-v1.2.3-rc.4.exe",
         )
 
+    def test_wheel_tags_are_preserved_and_identity_cannot_be_substituted(self):
+        name = "miexiang_generic_publish-0.2.0rc1-py3-none-any.whl"
+        self.assertEqual(canonical_artifact_name("miexiang-generic-publish", "0.2.0rc1", name), name)
+        for invalid in ("miexiang-generic-publish-0.2.0rc1.whl", "other-0.2.0rc1-py3-none-any.whl", "miexiang_generic_publish-9.0-py3-none-any.whl", "../" + name):
+            with self.subTest(invalid=invalid), self.assertRaises(PublishError):
+                canonical_artifact_name("miexiang-generic-publish", "0.2.0rc1", invalid)
+
     def test_release_metadata_rejects_local_paths_and_inline_credentials(self):
         cases = [
             {"display_name": "E:\\Users\\Owner\\private-installer.exe"},
