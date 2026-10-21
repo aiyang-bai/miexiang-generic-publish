@@ -306,9 +306,12 @@ class GitHubReleaseAdapter:
         return self._verify_release_asset(published, artifact, idempotent=False)
 
     def read_manifest(self, request: PublicationRequest) -> bytes | None:
+        if not self._default_branch:
+            self.preflight()
         path = f"manifests/{request.product_id}/{request.channel}/{request.version}/release-manifest.json"
+        query = urllib.parse.urlencode({"ref": self._default_branch})
         try:
-            current = self._api_json(f"repos/{self.repository}/contents/{path}")
+            current = self._api_json(f"repos/{self.repository}/contents/{path}?{query}")
         except PublishError as error:
             if error.code == "REMOTE_CONFLICT":
                 return None
@@ -336,7 +339,7 @@ class GitHubReleaseAdapter:
             if not same_release_identity(current_bytes, manifest_bytes):
                 raise PublishError("REMOTE_CONFLICT", "a different manifest already occupies this version path")
             remote_manifest_sha256 = hashlib.sha256(current_bytes).hexdigest()
-            query = urllib.parse.urlencode({"path": path, "per_page": "1"})
+            query = urllib.parse.urlencode({"path": path, "per_page": "1", "sha": self._default_branch})
             commits = self._api_json(f"repos/{self.repository}/commits?{query}")
             if not isinstance(commits, list) or not commits or not commits[0].get("sha"):
                 raise PublishError("PROVIDER_UNAVAILABLE", "GitHub manifest commit identity could not be read")

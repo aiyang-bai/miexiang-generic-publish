@@ -717,13 +717,13 @@ class CoreContractTests(unittest.TestCase):
 
         def runner(args, **kwargs):
             calls.append(args)
-            if args[1] == "api" and args[2] == "repos/owner/repo/contents/manifests/miexiang-test-publisher/test/0.1.0-manifest-retry.1/release-manifest.json":
+            if args[1] == "api" and urllib.parse.urlparse(args[2]).path == "repos/owner/repo/contents/manifests/miexiang-test-publisher/test/0.1.0-manifest-retry.1/release-manifest.json":
                 return SimpleNamespace(returncode=0, stdout=json.dumps({"content": encoded_content}), stderr="")
             if args[1] == "api" and args[2].startswith("repos/owner/repo/commits?"):
                 return SimpleNamespace(returncode=0, stdout=json.dumps([{"sha": "a" * 40}]), stderr="")
             return SimpleNamespace(returncode=0, stdout="", stderr="")
 
-        adapter = GitHubReleaseAdapter(GitHubProfile("owner/repo", True, "main"), TEST_ROOT, runner=runner)
+        adapter = GitHubReleaseAdapter(GitHubProfile("owner/repo", True, "release-manifests"), TEST_ROOT, runner=runner)
 
         def fake_download(url, destination, expected_size, expected_sha256, allowed_hosts):
             return SimpleNamespace(
@@ -739,9 +739,12 @@ class CoreContractTests(unittest.TestCase):
         self.assertEqual(parsed_lookup.path, "repos/owner/repo/commits")
         self.assertEqual(
             urllib.parse.parse_qs(parsed_lookup.query),
-            {"path": ["manifests/miexiang-test-publisher/test/0.1.0-manifest-retry.1/release-manifest.json"], "per_page": ["1"]},
+            {"path": ["manifests/miexiang-test-publisher/test/0.1.0-manifest-retry.1/release-manifest.json"], "per_page": ["1"], "sha": ["release-manifests"]},
         )
+        contents_lookup = next(args for args in calls if args[1] == "api" and "/contents/" in args[2])
+        self.assertEqual(urllib.parse.parse_qs(urllib.parse.urlparse(contents_lookup[2]).query), {"ref": ["release-manifests"]})
         self.assertNotIn("--field", commit_lookup)
+        self.assertFalse(any("--method" in args and "PUT" in args for args in calls))
         self.assertTrue(result["idempotent"])
         self.assertEqual(result["verified_sha256"], manifest_digest)
 

@@ -4,7 +4,7 @@
 
 Publish one explicitly identified software artifact, then fetch the final consumer URL and verify its size and SHA-256. Keep retries tied to product, channel and version; reject changed bytes for the same identity.
 
-**Version: 0.2.0rc1 (first public candidate). Licensed under MIT.**
+**Version: 0.2.0rc2 (corrected public candidate). Licensed under MIT.**
 The distribution has no required PyPI runtime dependencies. GitHub publishing uses the separately installed GitHub CLI (`gh`) and its OS credential store. COS is an optional experimental adapter, `IMPLEMENTED_UNVERIFIED` against a real service.
 
 ## Install and verify without an account

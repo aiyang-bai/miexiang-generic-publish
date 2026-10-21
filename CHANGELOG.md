@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0rc2 — corrected public candidate (2026-10-22)
+
+- Fix manifest contents and commit lookups to use the explicitly configured branch; real rc1 replay exposed a default-branch-only assumption.
+- Keep rc1 artifacts, tag and manifest intact; rc1 live replay failed, so its successful first upload is not full acceptance.
+- Align the imported package version with distribution metadata and verify it after actual installation.
+
+
 ## 0.2.0rc1 — first public candidate (2026-10-22)
 
 - Extract independent reviewed snapshot with fresh history.

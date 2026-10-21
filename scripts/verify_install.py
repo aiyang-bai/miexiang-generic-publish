@@ -11,6 +11,8 @@ CODE = r"""
 import hashlib, json, os, sys
 from pathlib import Path
 import miexiang_publish
+from importlib.metadata import version
+assert miexiang_publish.__version__ == version("miexiang-generic-publish")
 from miexiang_publish import paths
 from miexiang_publish.cli import main
 from miexiang_publish.models import identify_artifact
