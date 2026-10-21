@@ -76,10 +76,11 @@ def canonical_artifact_name(product_id: str, version: str, original_name: str) -
     """Generate an ASCII provider name without changing the source filename."""
     if original_name.lower().endswith(".whl"):
         # Preserve PyPA compatibility/build tags so the consumer filename remains installable.
-        wheel = re.fullmatch(r"([A-Za-z0-9_.]+)-([A-Za-z0-9_.!+]+)(?:-([0-9][A-Za-z0-9_]*))?-([A-Za-z0-9_.]+)-([A-Za-z0-9_.]+)-([A-Za-z0-9_.]+)\.whl", original_name)
+        supported_version = re.fullmatch(r"[0-9]+(?:\.[0-9]+)*(?:(?:a|b|rc)[0-9]+)?(?:\.post[0-9]+)?(?:\.dev[0-9]+)?(?:\+[a-z0-9]+(?:\.[a-z0-9]+)*)?", version)
+        wheel = re.fullmatch(r"([A-Za-z0-9_.]+)-([A-Za-z0-9_.!+]+)(?:-([0-9][A-Za-z0-9_]*))?-([A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*)-([A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*)-([A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*)\.whl", original_name)
         normalized = lambda value: re.sub(r"[-_.]+", "_", value).lower()
-        if not wheel or normalized(wheel.group(1)) != normalized(product_id) or wheel.group(2) != version:
-            raise PublishError("POLICY_REJECTED", "wheel filename must retain valid tags and match explicit product/version")
+        if not supported_version or not wheel or normalized(wheel.group(1)) != normalized(product_id) or wheel.group(2) != version:
+            raise PublishError("POLICY_REJECTED", "wheel filename must match supported numeric version, nonempty tags and explicit product identity")
         return original_name
     suffix = Path(original_name).suffix.lower().lstrip(".")
     extension = suffix if _SAFE_EXTENSION.fullmatch(suffix) else "bin"

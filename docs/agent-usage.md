@@ -25,3 +25,5 @@ Compare stable release identity, including artifact names, display names, sizes,
 For library use, select the data root once before constructing adapters. Build `GitHubReleaseAdapter(profile.github, paths.STAGING_ROOT)`, then `GenericPublisher(profile, [adapter])`. `preview` can contact the provider. Avoid changing runtime configuration concurrently. Do not install or modify global Agent skills as part of ordinary use.
 
 Wheel filenames retain their PyPA compatibility/build tags. Distribution must match the normalized explicit product_id and the version component must equal the explicit version; mismatches fail closed. Other artifacts keep identity-generated filenames.
+
+Wheel naming accepts a supported numeric normalized version subset: release components, optional a/b/rc, post/dev and dot-separated local labels. Other PEP 440 forms (including epochs) are rejected. Tags must be nonempty dot-separated identifiers. This is a naming/identity check, not a complete wheel content, version-parser or compatibility validator; install the actual wheel as part of release validation.

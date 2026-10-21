@@ -73,9 +73,13 @@ class CoreContractTests(unittest.TestCase):
     def test_wheel_tags_are_preserved_and_identity_cannot_be_substituted(self):
         name = "miexiang_generic_publish-0.2.0rc1-py3-none-any.whl"
         self.assertEqual(canonical_artifact_name("miexiang-generic-publish", "0.2.0rc1", name), name)
-        for invalid in ("miexiang-generic-publish-0.2.0rc1.whl", "other-0.2.0rc1-py3-none-any.whl", "miexiang_generic_publish-9.0-py3-none-any.whl", "../" + name):
+        for invalid in ("miexiang-generic-publish-0.2.0rc1.whl", "other-0.2.0rc1-py3-none-any.whl", "miexiang_generic_publish-9.0-py3-none-any.whl", "../" + name, "miexiang_generic_publish-0.2.0rc1-..-none-any.whl"):
             with self.subTest(invalid=invalid), self.assertRaises(PublishError):
                 canonical_artifact_name("miexiang-generic-publish", "0.2.0rc1", invalid)
+
+    def test_wheel_version_rejects_unsupported_non_numeric_identity(self):
+        with self.assertRaises(PublishError):
+            canonical_artifact_name("fixture", "foo", "fixture-foo-py3-none-any.whl")
 
     def test_release_metadata_rejects_local_paths_and_inline_credentials(self):
         cases = [
