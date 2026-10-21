@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools==65.5.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "miexiang-generic-publish"
+version = "0.2.0rc1"
+description = "Single-artifact release publisher with remote SHA-256 verification"
+requires-python = ">=3.11,<3.13"
+dependencies = []
+readme = "README.md"
+
+[project.optional-dependencies]
+cos = ["cos-python-sdk-v5==1.9.44"]
+
+[project.scripts]
+miexiang-publish = "miexiang_publish.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

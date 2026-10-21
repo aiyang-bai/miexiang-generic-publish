@@ -1,0 +1,1 @@
+# GitHub-only runtime uses the Python standard library; no PyPI dependencies.

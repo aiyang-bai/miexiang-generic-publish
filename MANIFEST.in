@@ -1,0 +1,13 @@
+include README.md README.zh-CN.md CHANGELOG.md THIRD_PARTY_NOTICES.md
+include requirements*.lock requirements.in
+recursive-include docs *.md
+recursive-include examples *.json
+recursive-include tests *.py
+recursive-include scripts *.py
+recursive-include .github *.yml *.md
+include AGENTS.md MAINTENANCE.md CONTRIBUTING.md SECURITY.md ROADMAP.md LICENSE-CANDIDATE.md
+prune .maintenance
+prune AUTOPILOT
+prune runtime
+prune dist
+global-exclude __pycache__ *.py[cod]

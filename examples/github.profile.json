@@ -1,0 +1,11 @@
+{
+  "profile_version": 1,
+  "provider_policy": "cn-software-v1",
+  "mirror_policy": "required",
+  "allowed_channels": ["test"],
+  "github": {
+    "repository": "example/release-fixture",
+    "public_write_authorized": false,
+    "manifest_branch": null
+  }
+}
