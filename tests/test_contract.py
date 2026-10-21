@@ -323,6 +323,7 @@ class CoreContractTests(unittest.TestCase):
             publisher = GenericPublisher(profile, [GoodProvider(), DownProvider()])
             result = publisher.publish(PublicationRequest("miexiang-test-publisher", "0.1.0-partial.1", "test"), source)
             self.assertEqual(result["PUBLISH_STATUS"], "PARTIAL")
+            self.assertIsNone(result["REMOTE_WRITE_PERFORMED"])
             self.assertIsNone(result["MANIFEST_PATH"])
             self.assertEqual(result["COS_BYTES_UPLOADED"], 0)
 

@@ -219,6 +219,7 @@ class ManifestReplayTests(unittest.TestCase):
 
             local_manifest = root / "runtime" / "reports" / request.product_id / request.channel / request.version / "release-manifest.json"
             self.assertEqual(result["PUBLISH_STATUS"], "IDEMPOTENT_ALREADY_PUBLISHED")
+            self.assertIs(result["REMOTE_WRITE_PERFORMED"], False)
             self.assertEqual(result["REMOTE_UPLOAD_BYTES"], 0)
             self.assertEqual(result["MANIFEST_SHA256"], hashlib.sha256(old_manifest).hexdigest())
             self.assertEqual(manifest_reads, [request.version])

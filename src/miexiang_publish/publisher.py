@@ -111,6 +111,18 @@ class GenericPublisher:
         }
 
     def publish(self, request: PublicationRequest, artifact_path: str | Path) -> dict[str, Any]:
+        result = self._publish(request, artifact_path)
+        # Preview's no-write flag must never masquerade as a completed publish receipt.
+        if result.get("REMOTE_UPLOAD_BYTES", 0) > 0:
+            result["REMOTE_WRITE_PERFORMED"] = True
+        elif result.get("PUBLISH_STATUS") == "IDEMPOTENT_ALREADY_PUBLISHED":
+            result["REMOTE_WRITE_PERFORMED"] = False
+        else:
+            # A provider may have written before failing without returning counters.
+            result["REMOTE_WRITE_PERFORMED"] = None
+        return result
+
+    def _publish(self, request: PublicationRequest, artifact_path: str | Path) -> dict[str, Any]:
         if self.profile is None or not self.providers:
             raise PublishError("AUTH_NOT_READY", "no approved provider profile is configured")
         if request.channel not in self.profile.allowed_channels:
