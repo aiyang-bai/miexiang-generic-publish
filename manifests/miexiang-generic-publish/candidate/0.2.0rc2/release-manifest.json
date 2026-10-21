@@ -1,0 +1,41 @@
+{
+  "schema": "MIEXIANG_RELEASE_MANIFEST_V1",
+  "schema_version": "MIEXIANG_RELEASE_MANIFEST_V1",
+  "product_id": "miexiang-generic-publish",
+  "version": "0.2.0rc2",
+  "channel": "candidate",
+  "release_channel": "candidate",
+  "generated_at": "2026-10-21T16:33:55Z",
+  "published_at": "2026-10-21T16:33:52Z",
+  "verified_at": "2026-10-21T16:33:55Z",
+  "display_name": "Miexiang Generic Publisher 0.2.0rc2",
+  "artifact_name": "miexiang_generic_publish-0.2.0rc2-py3-none-any.whl",
+  "size": 43159,
+  "sha256": "049a6bc810e10a24df811668b55f090e48bf71932ee143972bfea72ba445e0e3",
+  "provider": "github-releases",
+  "remote_url": "https://github.com/aiyang-bai/miexiang-generic-publish/releases/download/candidate-miexiang-generic-publish-miexiang-generic-publish-0.2.0rc2/miexiang_generic_publish-0.2.0rc2-py3-none-any.whl",
+  "remote_sha256": "049a6bc810e10a24df811668b55f090e48bf71932ee143972bfea72ba445e0e3",
+  "verification_status": "VERIFIED",
+  "release_notes": "Corrected MIT candidate. Explicit manifest branch replay and public noreply commit identities. COS remains IMPLEMENTED_UNVERIFIED.",
+  "mirror_policy": "required",
+  "artifacts": [
+    {
+      "filename": "miexiang_generic_publish-0.2.0rc2-py3-none-any.whl",
+      "display_name": "Miexiang Generic Publisher 0.2.0rc2",
+      "size_bytes": 43159,
+      "sha256": "049a6bc810e10a24df811668b55f090e48bf71932ee143972bfea72ba445e0e3",
+      "content_type": "application/octet-stream"
+    }
+  ],
+  "providers": [
+    {
+      "provider": "github-releases",
+      "role": "mirror",
+      "status": "VERIFIED",
+      "url": "https://github.com/aiyang-bai/miexiang-generic-publish/releases/download/candidate-miexiang-generic-publish-miexiang-generic-publish-0.2.0rc2/miexiang_generic_publish-0.2.0rc2-py3-none-any.whl",
+      "published_at": "2026-10-21T16:33:52Z",
+      "remote_verified_at": "2026-10-21T16:33:55Z",
+      "verified_sha256": "049a6bc810e10a24df811668b55f090e48bf71932ee143972bfea72ba445e0e3"
+    }
+  ]
+}
