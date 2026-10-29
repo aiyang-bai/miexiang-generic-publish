@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased maintenance
+
+- Pin setuptools 84.1.0 for the Windows legacy-install advisory, remove the unnecessary standalone wheel build dependency, and update only the optional COS certifi pin to 2026.10.19 for the emSign trust-root advisory. See THIRD_PARTY_NOTICES.md for scope and sources. Published rc2 artifacts are unchanged; real COS remains IMPLEMENTED_UNVERIFIED.
+- Correct the roadmap's obsolete Owner-decision state: public-ref metadata cleanup is complete and remaining cache/support work is deferred.
+
 ## 0.2.0rc2 — corrected public candidate (2026-10-22)
 
 - Explicitly set manifest commit author/committer to the authenticated GitHub user public noreply address; never inherit the account default email. The earlier rc1 commit metadata remains a disclosed unresolved historical privacy item.

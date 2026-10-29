@@ -10,7 +10,7 @@
 | Private security reporting channel | NOT_CONFIGURED | Owner authorization for repository settings change |
 | Resolve predecessor P2 records | WAITING_EVIDENCE | Original issue bodies located; do not infer their content from IDs |
 
-| Historical rc1 manifest commit default email | OPEN_OWNER_DECISION | Confirm retention or review a scoped history/cache cleanup plan; never reproduce the actual address in reports |
+| Historical rc1 manifest commit default email | PUBLIC_REFS_CLEAN; CACHE_DEFERRED | Targeted branch cleanup completed 2026-10-22; old caches remain NOT_PROVEN and support is deferred by Owner. Resume only on new actual impact or explicit Owner instruction; see docs/releases/2026-10-22-manifest-metadata-cleanup.md |
 
 No mandatory weekly release. Do not manufacture commits, users, stars, downloads or issues. Dependency updates require relevance, compatibility checks and an actual reason.
 
